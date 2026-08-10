@@ -1,77 +1,45 @@
-# python-two-sum
-Projeto de estudos
-# 🔢 Encontrando Pares com Soma Alvo
+# Two Sum — Python
 
-Um pequeno projeto em **Python** criado para praticar conceitos básicos de lógica de programação, como listas, loops, condicionais, entrada de dados e armazenamento de resultados.
+Implementação do problema **Two Sum** em Python, desenvolvida como parte dos meus estudos de lógica de programação.
 
-## 📌 Sobre o projeto
+## 📌 Sobre o problema
 
-O programa recebe um **valor alvo (`target`)** informado pelo usuário e verifica quais pares de números dentro de uma lista somam exatamente esse valor.
+Dada uma lista de números e um valor alvo (`target`), o objetivo é encontrar os pares de números cuja soma seja igual ao valor alvo.
 
-Por exemplo:
+### Exemplo
 
 ```text
 Lista: [1, 2, 3, 4, 5]
-Valor alvo: 7
+Target: 7
+```
 
+Resultado:
+
+```text
 2 + 5 = 7
 3 + 4 = 7
 ```
 
-O programa também informa a quantidade de pares encontrados.
+## 🧠 Minha solução
 
-## ⚙️ Como funciona
-
-O código utiliza dois loops `for` para comparar os números da lista entre si.
+A solução utiliza dois loops `for` para comparar cada número com os números seguintes da lista.
 
 ```python
 for i in range(len(nums)):
     for j in range(i + 1, len(nums)):
+        soma = nums[i] + nums[j]
 ```
 
-O `i + 1` faz com que o programa não compare um número com ele mesmo e também evita verificar o mesmo par duas vezes.
+O `i + 1` faz com que:
 
-Depois, os valores são somados:
+* Um número não seja comparado com ele mesmo.
+* O mesmo par não seja verificado duas vezes.
+
+Quando a soma encontrada é igual ao `target`, o par é armazenado:
 
 ```python
-soma = nums[i] + nums[j]
-```
-
-Quando a soma é igual ao valor informado pelo usuário, o par é armazenado na lista `pares`.
-
-## 🧠 Conceitos praticados
-
-* Listas em Python
-* `input()`
-* Conversão com `int()`
-* Estrutura `for`
-* `range()`
-* Estrutura condicional `if`
-* Índices de listas
-* Operadores matemáticos
-* Contagem de resultados
-* Armazenamento de dados em uma lista
-* Tuplas
-* Formatação de strings com `f-string`
-
-## ▶️ Como executar
-
-### 1. Clone o repositório
-
-```bash
-git clone URL_DO_SEU_REPOSITORIO
-```
-
-### 2. Entre na pasta
-
-```bash
-cd nome-do-projeto
-```
-
-### 3. Execute o programa
-
-```bash
-python nome_do_arquivo.py
+if soma == target:
+    pares.append((nums[i], nums[j]))
 ```
 
 ## 💻 Exemplo de execução
@@ -90,22 +58,49 @@ Quantidade de pares: 4
 ================================
 ```
 
-## 🎯 Objetivo
+## 📚 Conceitos praticados
 
-Este projeto faz parte dos meus estudos de **Python e lógica de programação**.
+* Listas
+* Índices
+* `for`
+* `range()`
+* `if`
+* `input()`
+* Conversão de tipos com `int()`
+* Tuplas
+* `append()`
+* Contadores
+* `f-strings`
+* Lógica de comparação
 
-A ideia é praticar a resolução de problemas utilizando estruturas básicas da linguagem antes de partir para soluções mais avançadas e otimizadas.
+## ⏱️ Complexidade
 
-## 📚 Próximos passos
+A solução utiliza dois loops aninhados.
 
-Algumas melhorias que podem ser feitas futuramente:
+**Complexidade de tempo:**
 
-* Permitir que o usuário informe os números da lista.
-* Criar uma função para encontrar os pares.
-* Melhorar a organização do código.
-* Comparar essa solução com uma abordagem utilizando dicionários.
-* Analisar e melhorar a complexidade do algoritmo.
+`O(n²)`
+
+Isso acontece porque, no pior caso, cada elemento precisa ser comparado com vários outros elementos da lista.
+
+**Complexidade de espaço:**
+
+`O(n)`
+
+No pior caso, a lista `pares` pode armazenar vários resultados.
+
+## 🚀 Próximos passos
+
+Pretendo futuramente comparar essa solução com uma implementação mais otimizada utilizando um **dicionário (`dict`)**, reduzindo a complexidade de tempo de `O(n²)` para aproximadamente `O(n)`.
+
+## 🎯 Objetivo do projeto
+
+Este projeto foi desenvolvido para praticar **Python, lógica de programação e resolução de problemas**, servindo também como registro da minha evolução nos estudos.
 
 ---
 
-**Projeto desenvolvido para fins de estudo e prática de Python.**
+**Status:** ✅ Concluído
+
+**Linguagem:** Python
+
+**Tipo:** Exercício de lógica / Algoritmos
